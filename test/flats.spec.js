@@ -33,17 +33,17 @@ describe('Flats Service', () => {
 
   it(
     'should update flat in database',
-    () => Flats.update(db, Object.assign({}, { _id: flats[0]._id, title: 'test' }))
+    () => Flats.update(db, Object.assign({}, { _id: flats[0]._id, number: 100500 }))
       .then(res => {
-        res.should.have.property('title').equal('test');
+        res.should.have.property('number').equal(100500);
       })
   );
 
   it(
     'should create flat in database',
-    () => Flats.create(db, Object.assign({}, { title: 'test' }))
+    () => Flats.create(db, Object.assign({}, { number: 100500 }))
       .then(res => {
-        res.should.have.property('title').equal('test');
+        res.should.have.property('number').equal(100500);
       })
   );
 });
