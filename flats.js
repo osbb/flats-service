@@ -5,17 +5,13 @@ export function load(db) {
 }
 
 export function update(db, flat) {
-  const { number } = flat;
-
   return db.collection('flats')
-    .updateOne({ _id: ObjectId(flat._id) }, { $set: { number } })
+    .updateOne({ _id: ObjectId(flat._id) }, { $set: flat })
     .then(() => db.collection('flats').findOne({ _id: ObjectId(flat._id) }, {}));
 }
 
 export function create(db, flat) {
-  const { number } = flat;
-
   return db.collection('flats')
-    .insertOne({ number }, {})
+    .insertOne(flat, {})
     .then(res => db.collection('flats').findOne({ _id: ObjectId(res.insertedId) }, {}));
 }
