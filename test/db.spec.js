@@ -1,6 +1,6 @@
 import chai from 'chai';
 import { MongoClient, ObjectId } from 'mongodb';
-import * as Flats from '../flats';
+import * as Flats from '../db';
 
 chai.should();
 
